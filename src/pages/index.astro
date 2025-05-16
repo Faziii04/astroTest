@@ -1,20 +1,549 @@
 ---
+import Navigation from '../components/navigation.astro';
+import Footer from '../components/footer.astro';
 
+const features = [
+  {
+    icon: '📱',
+    title: 'Mobile Responsive',
+    description: 'Our designs look amazing on all devices, from desktops to smartphones.'
+  },
+  {
+    icon: '🚀',
+    title: 'Performance Optimized',
+    description: 'Lightning-fast loading times and smooth interactions for a superior user experience.'
+  },
+  {
+    icon: '🔒',
+    title: 'Security Focused',
+    description: 'Enterprise-grade security to keep your data and applications safe.'
+  },
+  {
+    icon: '🔄',
+    title: 'Continuous Updates',
+    description: 'Regular updates and improvements to ensure your technology stays cutting edge.'
+  }
+];
+
+const testimonials = [
+  {
+    quote: "Working with TechWave transformed our business completely. Their solutions helped us increase efficiency by 40%.",
+    author: "Sarah Johnson",
+    position: "CEO, Innovate Inc.",
+    image: "https://randomuser.me/api/portraits/women/48.jpg"
+  },
+  {
+    quote: "The team at TechWave truly understands our needs. They delivered exactly what we needed, on time and on budget.",
+    author: "Michael Chen",
+    position: "CTO, Future Systems",
+    image: "https://randomuser.me/api/portraits/men/32.jpg"
+  }
+];
 ---
 
 <html lang="en">
-	<head>
-		<meta charset="utf-8" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<meta name="viewport" content="width=device-width" />
-		<meta name="generator" content={Astro.generator} />
-		<title>Astro</title>
-	</head>
-	<body>
-		<a href="/">Inicio</a>
-		<h1>Astro</h1>
-		<h2>K tul gente</h2>
-		<h3>hola bb</h3>
-		<p>hijioewjwf</p>
-	</body>
+    <head>
+        <meta charset="utf-8" />
+        <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+        <meta name="viewport" content="width=device-width" />
+        <meta name="generator" content={Astro.generator} />
+        <meta name="description" content="TechWave - Innovative technology solutions for modern businesses" />
+        <title>TechWave | Innovative Technology Solutions</title>
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    </head>
+    <body>
+        <Navigation />
+        
+        <!-- Hero Section -->
+        <section class="hero">
+            <div class="container">
+                <div class="hero-content">
+                    <h1>Transform Your Business With <span class="text-gradient">Cutting-Edge</span> Technology</h1>
+                    <p class="hero-description">
+                        We help businesses leverage the latest technologies to drive growth, 
+                        improve efficiency, and deliver exceptional customer experiences.
+                    </p>
+                    <div class="hero-buttons">
+                        <a href="#contact" class="btn btn-primary">Get Started</a>
+                        <a href="#services" class="btn btn-outline">Learn More</a>
+                    </div>
+                </div>
+                <div class="hero-image">
+                    <img 
+                        src="https://images.unsplash.com/photo-1581091226825-a6a2a5aee9df?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80" 
+                        alt="Digital technology visualization"
+                        width="600"
+                        height="400"
+                    />
+                </div>
+            </div>
+        </section>
+        
+        <!-- Features Section -->
+        <section class="features" id="services">
+            <div class="container">
+                <div class="section-header">
+                    <h2>Why Choose <span class="text-gradient">TechWave</span></h2>
+                    <p>Discover the advantages that set our solutions apart</p>
+                </div>
+                
+                <div class="features-grid">
+                    {features.map(feature => (
+                        <div class="feature-card">
+                            <div class="feature-icon">{feature.icon}</div>
+                            <h3>{feature.title}</h3>
+                            <p>{feature.description}</p>
+                        </div>
+                    ))}
+                </div>
+            </div>
+        </section>
+        
+        <!-- Stats Section -->
+        <section class="stats">
+            <div class="container">
+                <div class="stats-grid">
+                    <div class="stat">
+                        <div class="stat-number">200+</div>
+                        <div class="stat-label">Clients Served</div>
+                    </div>
+                    <div class="stat">
+                        <div class="stat-number">98%</div>
+                        <div class="stat-label">Client Satisfaction</div>
+                    </div>
+                    <div class="stat">
+                        <div class="stat-number">500+</div>
+                        <div class="stat-label">Projects Delivered</div>
+                    </div>
+                    <div class="stat">
+                        <div class="stat-number">24/7</div>
+                        <div class="stat-label">Support Available</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Testimonials Section -->
+        <section class="testimonials">
+            <div class="container">
+                <div class="section-header">
+                    <h2>What Our <span class="text-gradient">Clients</span> Say</h2>
+                    <p>Stories from businesses we've helped succeed</p>
+                </div>
+                
+                <div class="testimonials-grid">
+                    {testimonials.map(testimonial => (
+                        <div class="testimonial-card">
+                            <div class="testimonial-quote">{testimonial.quote}</div>
+                            <div class="testimonial-author">
+                                <img src={testimonial.image} alt={testimonial.author} />
+                                <div class="author-info">
+                                    <h4>{testimonial.author}</h4>
+                                    <p>{testimonial.position}</p>
+                                </div>
+                            </div>
+                        </div>
+                    ))}
+                </div>
+            </div>
+        </section>
+        
+        <!-- CTA Section -->
+        <section class="cta" id="contact">
+            <div class="container">
+                <div class="cta-content">
+                    <h2>Ready to <span class="text-gradient">Transform</span> Your Business?</h2>
+                    <p>Contact us today for a free consultation and discover how our solutions can help you achieve your goals.</p>
+                    
+                    <form class="contact-form">
+                        <div class="form-group">
+                            <input type="text" name="name" placeholder="Your Name" required />
+                        </div>
+                        <div class="form-group">
+                            <input type="email" name="email" placeholder="Your Email" required />
+                        </div>
+                        <div class="form-group full-width">
+                            <textarea name="message" placeholder="Your Message" rows="4" required></textarea>
+                        </div>
+                        <button type="submit" class="btn btn-primary">Send Message</button>
+                    </form>
+                </div>
+            </div>
+        </section>
+        
+        <Footer />
+    </body>
 </html>
+
+<style>
+    /* Base Styles */
+    :root {
+        --primary: #3b82f6;
+        --primary-dark: #2563eb;
+        --secondary: #14b8a6;
+        --text-dark: #1f2937;
+        --text-light: #6b7280;
+        --bg-light: #f8fafc;
+        --bg-white: #ffffff;
+        --shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+        --radius: 8px;
+    }
+    
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+    }
+    
+    html, body {
+        font-family: 'Inter', sans-serif;
+        color: var(--text-dark);
+        line-height: 1.6;
+        scroll-behavior: smooth;
+    }
+    
+    img {
+        max-width: 100%;
+        height: auto;
+        border-radius: var(--radius);
+    }
+    
+    .container {
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 0 1.5rem;
+    }
+    
+    section {
+        padding: 5rem 0;
+    }
+    
+    h1, h2, h3, h4 {
+        line-height: 1.2;
+    }
+    
+    .section-header {
+        text-align: center;
+        max-width: 700px;
+        margin: 0 auto 3rem;
+    }
+    
+    .section-header h2 {
+        font-size: 2.5rem;
+        margin-bottom: 1rem;
+    }
+    
+    .section-header p {
+        font-size: 1.1rem;
+        color: var(--text-light);
+    }
+    
+    .text-gradient {
+        background: linear-gradient(90deg, var(--primary), var(--secondary));
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+    }
+    
+    .btn {
+        display: inline-block;
+        padding: 0.8rem 1.8rem;
+        border-radius: var(--radius);
+        font-weight: 500;
+        text-decoration: none;
+        cursor: pointer;
+        transition: all 0.3s ease;
+        font-size: 1rem;
+    }
+    
+    .btn-primary {
+        background: linear-gradient(90deg, var(--primary), var(--primary-dark));
+        color: white;
+        border: none;
+    }
+    
+    .btn-primary:hover {
+        transform: translateY(-2px);
+        box-shadow: var(--shadow);
+    }
+    
+    .btn-outline {
+        border: 1px solid var(--primary);
+        color: var(--primary);
+        background: transparent;
+    }
+    
+    .btn-outline:hover {
+        background: var(--primary);
+        color: white;
+        transform: translateY(-2px);
+    }
+    
+    /* Hero Section */
+    .hero {
+        padding: 6rem 0;
+        background-color: var(--bg-light);
+        position: relative;
+        overflow: hidden;
+    }
+    
+    .hero .container {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        align-items: center;
+        gap: 3rem;
+    }
+    
+    .hero-content h1 {
+        font-size: 3.5rem;
+        font-weight: 800;
+        margin-bottom: 1.5rem;
+        line-height: 1.1;
+    }
+    
+    .hero-description {
+        font-size: 1.2rem;
+        margin-bottom: 2rem;
+        color: var(--text-light);
+    }
+    
+    .hero-buttons {
+        display: flex;
+        gap: 1rem;
+    }
+    
+    .hero-image {
+        position: relative;
+    }
+    
+    .hero-image img {
+        box-shadow: var(--shadow);
+    }
+    
+    /* Features Section */
+    .features {
+        background-color: var(--bg-white);
+    }
+    
+    .features-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+        gap: 2rem;
+    }
+    
+    .feature-card {
+        padding: 2rem;
+        background-color: var(--bg-white);
+        border-radius: var(--radius);
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+    }
+    
+    .feature-card:hover {
+        transform: translateY(-5px);
+        box-shadow: var(--shadow);
+    }
+    
+    .feature-icon {
+        font-size: 2.5rem;
+        margin-bottom: 1rem;
+    }
+    
+    .feature-card h3 {
+        font-size: 1.3rem;
+        margin-bottom: 0.75rem;
+        font-weight: 600;
+    }
+    
+    .feature-card p {
+        color: var(--text-light);
+    }
+    
+    /* Stats Section */
+    .stats {
+        background: linear-gradient(90deg, var(--primary), var(--secondary));
+        color: white;
+        padding: 4rem 0;
+    }
+    
+    .stats-grid {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        gap: 2rem;
+        text-align: center;
+    }
+    
+    .stat-number {
+        font-size: 3rem;
+        font-weight: 700;
+        margin-bottom: 0.5rem;
+    }
+    
+    .stat-label {
+        font-size: 1.1rem;
+        opacity: 0.9;
+    }
+    
+    /* Testimonials Section */
+    .testimonials {
+        background-color: var(--bg-light);
+    }
+    
+    .testimonials-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        gap: 2rem;
+    }
+    
+    .testimonial-card {
+        padding: 2rem;
+        background-color: var(--bg-white);
+        border-radius: var(--radius);
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+    }
+    
+    .testimonial-quote {
+        font-style: italic;
+        margin-bottom: 1.5rem;
+        color: var(--text-dark);
+    }
+    
+    .testimonial-author {
+        display: flex;
+        align-items: center;
+        gap: 1rem;
+    }
+    
+    .testimonial-author img {
+        width: 50px;
+        height: 50px;
+        border-radius: 50%;
+    }
+    
+    .author-info h4 {
+        font-size: 1rem;
+        margin-bottom: 0.25rem;
+    }
+    
+    .author-info p {
+        font-size: 0.875rem;
+        color: var(--text-light);
+    }
+    
+    /* CTA Section */
+    .cta {
+        padding: 6rem 0;
+    }
+    
+    .cta-content {
+        max-width: 700px;
+        margin: 0 auto;
+        text-align: center;
+    }
+    
+    .cta-content h2 {
+        font-size: 2.5rem;
+        margin-bottom: 1rem;
+    }
+    
+    .cta-content p {
+        font-size: 1.1rem;
+        color: var(--text-light);
+        margin-bottom: 2.5rem;
+    }
+    
+    .contact-form {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 1rem;
+        text-align: left;
+    }
+    
+    .form-group {
+        margin-bottom: 1rem;
+    }
+    
+    .full-width {
+        grid-column: 1 / -1;
+    }
+    
+    .contact-form input, 
+    .contact-form textarea {
+        width: 100%;
+        padding: 0.75rem;
+        border: 1px solid #e5e7eb;
+        border-radius: var(--radius);
+        font-family: inherit;
+        font-size: 1rem;
+    }
+    
+    .contact-form textarea {
+        resize: vertical;
+    }
+    
+    .contact-form button {
+        grid-column: 1 / -1;
+        justify-self: center;
+    }
+    
+    /* Responsive Styles */
+    @media (max-width: 992px) {
+        .hero .container {
+            grid-template-columns: 1fr;
+        }
+        
+        .hero-content {
+            text-align: center;
+        }
+        
+        .hero-buttons {
+            justify-content: center;
+        }
+        
+        .stats-grid {
+            grid-template-columns: repeat(2, 1fr);
+        }
+    }
+    
+    @media (max-width: 768px) {
+        section {
+            padding: 4rem 0;
+        }
+        
+        .hero-content h1 {
+            font-size: 2.5rem;
+        }
+        
+        .section-header h2 {
+            font-size: 2rem;
+        }
+    }
+    
+    @media (max-width: 576px) {
+        .stats-grid {
+            grid-template-columns: 1fr;
+        }
+        
+        .contact-form {
+            grid-template-columns: 1fr;
+        }
+    }
+</style>
+
+<script>
+  // Optional: Add some interactivity here
+  document.addEventListener('DOMContentLoaded', () => {
+    // Handle form submission
+    const contactForm = document.querySelector('.contact-form');
+    contactForm?.addEventListener('submit', (e) => {
+      e.preventDefault();
+      // Here you would normally send the form data to your backend
+      alert('Thanks for your message! This is a demo form.');
+    });
+  });
+</script>

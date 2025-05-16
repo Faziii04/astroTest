@@ -1,0 +1,456 @@
+---
+import Navigation from '../components/navigation.astro';
+import Footer from '../components/footer.astro';
+
+const team = [
+  {
+    name: 'Alex Johnson',
+    position: 'Chief Executive Officer',
+    image: 'https://randomuser.me/api/portraits/men/1.jpg',
+    bio: 'Alex has over 15 years of experience in technology leadership and business development.'
+  },
+  {
+    name: 'Maya Rodriguez',
+    position: 'Chief Technology Officer',
+    image: 'https://randomuser.me/api/portraits/women/2.jpg',
+    bio: 'Maya leads our technical vision and development strategy with expertise in AI and cloud computing.'
+  },
+  {
+    name: 'David Kim',
+    position: 'Creative Director',
+    image: 'https://randomuser.me/api/portraits/men/3.jpg',
+    bio: 'With an eye for design and user experience, David ensures our products are both beautiful and functional.'
+  },
+  {
+    name: 'Sarah Martinez',
+    position: 'Head of Marketing',
+    image: 'https://randomuser.me/api/portraits/women/4.jpg',
+    bio: 'Sarah brings creativity and data-driven insights to our marketing strategies and brand development.'
+  }
+];
+
+const values = [
+  {
+    title: 'Innovation',
+    description: 'We constantly push boundaries and explore new technologies to deliver cutting-edge solutions.'
+  },
+  {
+    title: 'Quality',
+    description: 'We maintain the highest standards in everything we do, from code to customer service.'
+  },
+  {
+    title: 'Collaboration',
+    description: 'We believe the best results come from teamwork, both internally and with our clients.'
+  },
+  {
+    title: 'Integrity',
+    description: 'We build trust through honest communication and ethical business practices.'
+  }
+];
+---
+
+<html lang="en">
+    <head>
+        <meta charset="utf-8" />
+        <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+        <meta name="viewport" content="width=device-width" />
+        <meta name="generator" content={Astro.generator} />
+        <meta name="description" content="About TechWave - Learn more about our company, team and values" />
+        <title>About Us | TechWave</title>
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    </head>
+    <body>
+        <Navigation />
+        
+        <!-- About Hero Section -->
+        <section class="about-hero">
+            <div class="container">
+                <div class="about-hero-content">
+                    <h1>About <span class="text-gradient">TechWave</span></h1>
+                    <p class="subtitle">Innovating for a better future</p>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Our Story Section -->
+        <section class="our-story">
+            <div class="container">
+                <div class="story-content">
+                    <div class="story-text">
+                        <h2>Our <span class="text-gradient">Story</span></h2>
+                        <p>
+                            Founded in 2010, TechWave began with a simple mission: to help businesses harness the power of technology. 
+                            What started as a small team of passionate developers has grown into a comprehensive technology partner 
+                            trusted by businesses worldwide.
+                        </p>
+                        <p>
+                            Throughout our journey, we've remained committed to innovation, quality, and client success. 
+                            We've evolved with the changing technology landscape, continuously expanding our expertise to 
+                            provide cutting-edge solutions that drive real business results.
+                        </p>
+                        <p>
+                            Today, TechWave serves clients across industries, from startups to Fortune 500 companies, 
+                            helping them navigate digital transformation and achieve their business objectives through 
+                            technology.
+                        </p>
+                    </div>
+                    <div class="story-image">
+                        <img 
+                            src="https://images.unsplash.com/photo-1552664730-d307ca884978?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80" 
+                            alt="TechWave team collaboration"
+                        />
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Our Values Section -->
+        <section class="our-values">
+            <div class="container">
+                <div class="section-header">
+                    <h2>Our <span class="text-gradient">Values</span></h2>
+                    <p>The principles that guide everything we do</p>
+                </div>
+                
+                <div class="values-grid">
+                    {values.map(value => (
+                        <div class="value-card">
+                            <h3>{value.title}</h3>
+                            <p>{value.description}</p>
+                        </div>
+                    ))}
+                </div>
+            </div>
+        </section>
+        
+        <!-- Team Section -->
+        <section class="our-team">
+            <div class="container">
+                <div class="section-header">
+                    <h2>Meet Our <span class="text-gradient">Team</span></h2>
+                    <p>The talented people behind our success</p>
+                </div>
+                
+                <div class="team-grid">
+                    {team.map(member => (
+                        <div class="team-card">
+                            <div class="member-image">
+                                <img src={member.image} alt={member.name} />
+                            </div>
+                            <h3>{member.name}</h3>
+                            <p class="member-position">{member.position}</p>
+                            <p class="member-bio">{member.bio}</p>
+                        </div>
+                    ))}
+                </div>
+            </div>
+        </section>
+        
+        <!-- CTA Section -->
+        <section class="join-team">
+            <div class="container">
+                <div class="join-content">
+                    <h2>Join Our <span class="text-gradient">Team</span></h2>
+                    <p>
+                        We're always looking for talented individuals to join us on our mission. 
+                        Check out our open positions and become part of something special.
+                    </p>
+                    <a href="#careers" class="btn btn-primary">View Open Positions</a>
+                </div>
+            </div>
+        </section>
+        
+        <Footer />
+    </body>
+</html>
+
+<style>
+    /* Base Styles (reusing from index.astro) */
+    :root {
+        --primary: #3b82f6;
+        --primary-dark: #2563eb;
+        --secondary: #14b8a6;
+        --text-dark: #1f2937;
+        --text-light: #6b7280;
+        --bg-light: #f8fafc;
+        --bg-white: #ffffff;
+        --shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+        --radius: 8px;
+    }
+    
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+    }
+    
+    html, body {
+        font-family: 'Inter', sans-serif;
+        color: var(--text-dark);
+        line-height: 1.6;
+        scroll-behavior: smooth;
+    }
+    
+    img {
+        max-width: 100%;
+        height: auto;
+        border-radius: var(--radius);
+    }
+    
+    .container {
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 0 1.5rem;
+    }
+    
+    section {
+        padding: 5rem 0;
+    }
+    
+    h1, h2, h3, h4 {
+        line-height: 1.2;
+    }
+    
+    .section-header {
+        text-align: center;
+        max-width: 700px;
+        margin: 0 auto 3rem;
+    }
+    
+    .section-header h2 {
+        font-size: 2.5rem;
+        margin-bottom: 1rem;
+    }
+    
+    .section-header p {
+        font-size: 1.1rem;
+        color: var(--text-light);
+    }
+    
+    .text-gradient {
+        background: linear-gradient(90deg, var(--primary), var(--secondary));
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+    }
+    
+    .btn {
+        display: inline-block;
+        padding: 0.8rem 1.8rem;
+        border-radius: var(--radius);
+        font-weight: 500;
+        text-decoration: none;
+        cursor: pointer;
+        transition: all 0.3s ease;
+        font-size: 1rem;
+    }
+    
+    .btn-primary {
+        background: linear-gradient(90deg, var(--primary), var(--primary-dark));
+        color: white;
+        border: none;
+    }
+    
+    .btn-primary:hover {
+        transform: translateY(-2px);
+        box-shadow: var(--shadow);
+    }
+    
+    /* About Page Specific Styles */
+    .about-hero {
+        background-color: var(--bg-light);
+        padding: 8rem 0;
+        text-align: center;
+        position: relative;
+    }
+    
+    .about-hero-content h1 {
+        font-size: 4rem;
+        font-weight: 800;
+        margin-bottom: 1rem;
+    }
+    
+    .subtitle {
+        font-size: 1.5rem;
+        color: var(--text-light);
+    }
+    
+    .our-story {
+        background-color: var(--bg-white);
+    }
+    
+    .story-content {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 3rem;
+        align-items: center;
+    }
+    
+    .story-text h2 {
+        font-size: 2.5rem;
+        margin-bottom: 1.5rem;
+    }
+    
+    .story-text p {
+        margin-bottom: 1.5rem;
+        color: var(--text-light);
+    }
+    
+    .story-image img {
+        border-radius: var(--radius);
+        box-shadow: var(--shadow);
+    }
+    
+    .our-values {
+        background-color: var(--bg-light);
+    }
+    
+    .values-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+        gap: 2rem;
+    }
+    
+    .value-card {
+        background-color: var(--bg-white);
+        padding: 2rem;
+        border-radius: var(--radius);
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+        transition: transform 0.3s ease;
+    }
+    
+    .value-card:hover {
+        transform: translateY(-5px);
+        box-shadow: var(--shadow);
+    }
+    
+    .value-card h3 {
+        margin-bottom: 1rem;
+        font-size: 1.3rem;
+    }
+    
+    .value-card p {
+        color: var(--text-light);
+    }
+    
+    .our-team {
+        background-color: var(--bg-white);
+    }
+    
+    .team-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+        gap: 2.5rem;
+    }
+    
+    .team-card {
+        text-align: center;
+        transition: transform 0.3s ease;
+    }
+    
+    .team-card:hover {
+        transform: translateY(-5px);
+    }
+    
+    .member-image {
+        width: 150px;
+        height: 150px;
+        border-radius: 50%;
+        overflow: hidden;
+        margin: 0 auto 1.5rem;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    }
+    
+    .member-image img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+    }
+    
+    .team-card h3 {
+        font-size: 1.3rem;
+        margin-bottom: 0.5rem;
+    }
+    
+    .member-position {
+        color: var(--primary);
+        font-weight: 500;
+        margin-bottom: 1rem;
+    }
+    
+    .member-bio {
+        color: var(--text-light);
+        font-size: 0.9rem;
+    }
+    
+    .join-team {
+        background: linear-gradient(90deg, var(--primary), var(--secondary));
+        color: white;
+        text-align: center;
+    }
+    
+    .join-content {
+        max-width: 600px;
+        margin: 0 auto;
+    }
+    
+    .join-content h2 {
+        font-size: 2.5rem;
+        margin-bottom: 1.5rem;
+    }
+    
+    .join-content p {
+        margin-bottom: 2rem;
+        opacity: 0.9;
+    }
+    
+    .join-content .btn {
+        border: 2px solid white;
+        background: transparent;
+        color: white;
+    }
+    
+    .join-content .btn:hover {
+        background: white;
+        color: var(--primary);
+    }
+    
+    /* Responsive Styles */
+    @media (max-width: 992px) {
+        .story-content {
+            grid-template-columns: 1fr;
+            text-align: center;
+        }
+        
+        .story-image {
+            order: -1;
+            margin-bottom: 2rem;
+        }
+    }
+    
+    @media (max-width: 768px) {
+        section {
+            padding: 4rem 0;
+        }
+        
+        .about-hero-content h1 {
+            font-size: 3rem;
+        }
+        
+        .story-text h2, .section-header h2 {
+            font-size: 2rem;
+        }
+    }
+    
+    @media (max-width: 576px) {
+        .about-hero {
+            padding: 6rem 0;
+        }
+        
+        .about-hero-content h1 {
+            font-size: 2.5rem;
+        }
+    }
+</style>
